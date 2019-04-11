@@ -206,12 +206,15 @@ function run(cmd, cb) {
 }
 
 function executeCommands(command, postCommand, cb) {
-  if (! command) {
-    logger.debug('Did not find command to execute');
-    return cb(new Error('Did not find command to execute'))
-  }
   if (typeof cb != 'function') {
     cb = noop
+  }
+  if (! command) {
+
+    logger.debug('Did not find command to execute');
+    logger.debug(cb);
+    logger.debug(postCommand);
+    return cb(new Error('Did not find command to execute'))
   }
 
   logger.debug('Found command: ' + command);

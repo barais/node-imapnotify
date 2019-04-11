@@ -2,7 +2,6 @@
 
    function getStdout(cmd) {
        var stdout = child_process.execSync(cmd);
-       console.log(stdout.toString().trim());
        return stdout.toString().trim();
    }
 
